@@ -28,5 +28,6 @@
     "postcss": "^8.5.10",
     "tailwindcss": "^4.2.4",
     "vite": "^8.0.9"
-  }
+  },
+  "homepage": "https://github.com/Liking110626/lvsexinling"
 }
