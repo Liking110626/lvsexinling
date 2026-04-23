@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "lucide-react": "^1.8.0",
@@ -29,5 +31,5 @@
     "tailwindcss": "^4.2.4",
     "vite": "^8.0.9"
   },
-  "homepage": "https://github.com/Liking110626/lvsexinling"
+  "homepage": "https://Liking110626.github.io/lvsexinling"
 }
