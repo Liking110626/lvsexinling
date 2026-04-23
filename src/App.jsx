@@ -1,7 +1,7 @@
 import {
   Building2,
   Heart,
-  Home,
+  Home as HomeIcon,
   MessageCircleHeart,
   Stethoscope,
 } from 'lucide-react'
@@ -15,7 +15,7 @@ import Testing from './pages/Testing'
 const PLATFORM_NAME = '绿色心灵'
 
 const NAV_ITEMS = [
-  { key: 'HomePage', label: '首页', icon: Home },
+  { key: 'HomePage', label: '首页', icon: HomeIcon },
   { key: 'Stations', label: '站点', icon: Building2 },
   { key: 'Testing', label: '自测', icon: Stethoscope },
   { key: 'AiConsult', label: 'AI咨询', icon: MessageCircleHeart },
