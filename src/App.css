@@ -881,47 +881,42 @@
 
 @media (max-width: 768px) {
   .header-content {
-    padding: 8px 12px;
+    padding: 6px 12px;
   }
 
   .logo-section {
-    margin-bottom: 8px;
-  }
-
-  .logo-icon {
-    width: 36px;
-    height: 36px;
-  }
-
-  .logo-text h1 {
-    font-size: 1rem;
-  }
-
-  .logo-text .eyebrow {
-    font-size: 0.625rem;
-  }
-
-  .logo-btn {
-    padding: 6px 12px 6px 6px;
-    gap: 8px;
-  }
-
-  .nav-label {
-    font-size: 0.625rem;
     margin-bottom: 6px;
   }
 
-  .nav-grid {
-    gap: 8px;
+  .logo-icon {
+    width: 28px;
+    height: 28px;
   }
 
-  .nav-btn {
-    padding: 10px 12px;
-    gap: 10px;
+  .logo-icon svg {
+    width: 16px;
+    height: 16px;
   }
-  
+
+  .logo-text h1 {
+    font-size: 0.875rem;
+  }
+
+  .logo-text .eyebrow {
+    font-size: 0.5625rem;
+  }
+
+  .logo-btn {
+    padding: 4px 10px 4px 4px;
+    gap: 6px;
+  }
+
+  .nav-section {
+    display: none;
+  }
+
   .main-content {
-    padding: 20px 16px;
+    padding: 20px 16px 80px;
   }
   
   .hero-section {
@@ -947,5 +942,64 @@
   
   .station-card {
     padding: 16px;
+  }
+}
+
+/* ========================================
+   移动端底部导航
+   ======================================== */
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  padding: 8px 12px;
+  padding-bottom: max(8px, env(safe-area-inset-bottom));
+  z-index: 100;
+  justify-content: space-around;
+}
+
+.mobile-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 60px;
+}
+
+.mobile-nav-btn span {
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.mobile-nav-btn.active {
+  color: var(--primary);
+  background: var(--primary-soft);
+}
+
+.mobile-nav-btn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .mobile-nav {
+    display: flex;
+  }
+
+  .main-content {
+    padding-bottom: 80px;
   }
 }

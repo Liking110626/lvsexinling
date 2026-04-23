@@ -1,37 +1,36 @@
 import {
   Building2,
   Heart,
-  LayoutDashboard,
+  Home,
   MessageCircleHeart,
-  Sparkles,
   Stethoscope,
-  Users,
 } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import './App.css'
 import AiConsult from './pages/AiConsult'
-import Home from './pages/Home'
+import HomePage from './pages/Home'
 import Stations from './pages/Stations'
 import Testing from './pages/Testing'
 
 const PLATFORM_NAME = '绿色心灵'
 
-const PAGES = [
-  { key: 'Stations', label: '线下站点', hint: '预约 · 导航 · 专家', icon: Building2 },
-  { key: 'Testing', label: '心理自测', hint: '全生命周期评估', icon: Stethoscope },
-  { key: 'AiConsult', label: 'AI预问诊', hint: '共情导诊 · 风险识别', icon: MessageCircleHeart },
+const NAV_ITEMS = [
+  { key: 'HomePage', label: '首页', icon: Home },
+  { key: 'Stations', label: '站点', icon: Building2 },
+  { key: 'Testing', label: '自测', icon: Stethoscope },
+  { key: 'AiConsult', label: 'AI咨询', icon: MessageCircleHeart },
 ]
 
 const PAGE_MAP = {
-  Home,
+  HomePage,
   Stations,
   Testing,
   AiConsult,
 }
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('Home')
-  const PageComponent = PAGE_MAP[currentPage] ?? Home
+  const [currentPage, setCurrentPage] = useState('HomePage')
+  const PageComponent = PAGE_MAP[currentPage] ?? HomePage
 
   useEffect(() => {
     document.title = `${PLATFORM_NAME} - 心理健康服务平台`
@@ -44,7 +43,7 @@ function App() {
           <div className="logo-section">
             <button
               type="button"
-              onClick={() => setCurrentPage('Home')}
+              onClick={() => setCurrentPage('HomePage')}
               className="logo-btn"
             >
               <div className="logo-icon">
@@ -58,23 +57,23 @@ function App() {
 
           <nav className="nav-section">
             <div className="nav-grid">
-              {PAGES.map((page) => {
-                const Icon = page.icon
-                const isActive = page.key === currentPage
+              {NAV_ITEMS.slice(1).map((item) => {
+                const Icon = item.icon
+                const isActive = item.key === currentPage
 
                 return (
                   <button
-                    key={page.key}
+                    key={item.key}
                     type="button"
-                    onClick={() => setCurrentPage(page.key)}
+                    onClick={() => setCurrentPage(item.key)}
                     className={`nav-btn ${isActive ? 'active' : ''}`}
                   >
                     <span className="nav-icon">
                       <Icon className="h-5 w-5" />
                     </span>
                     <span className="nav-info">
-                      <span className="nav-title">{page.label}</span>
-                      <span className="nav-desc">{page.hint}</span>
+                      <span className="nav-title">{item.label}</span>
+                      <span className="nav-desc">{item.hint}</span>
                     </span>
                   </button>
                 )
@@ -87,6 +86,26 @@ function App() {
       <main className="main-content">
         <PageComponent onNavigate={setCurrentPage} />
       </main>
+
+      {/* 移动端底部导航 */}
+      <nav className="mobile-nav">
+        {NAV_ITEMS.map((item) => {
+          const Icon = item.icon
+          const isActive = item.key === currentPage
+
+          return (
+            <button
+              key={item.key}
+              type="button"
+              onClick={() => setCurrentPage(item.key)}
+              className={`mobile-nav-btn ${isActive ? 'active' : ''}`}
+            >
+              <Icon className="h-5 w-5" />
+              <span>{item.label}</span>
+            </button>
+          )
+        })}
+      </nav>
     </div>
   )
 }
